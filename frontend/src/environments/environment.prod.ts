@@ -3,5 +3,5 @@ export const environment = {
     /** Setting whether production is active in this environment */
     production: true,
     /** Defines the URL for where API calls to the backend should point */
-    backend_url: 'http://localhost:5001'
+    backend_url: 'https://toxic-comments-classifier.jocawebs.be/:5000'
 };
