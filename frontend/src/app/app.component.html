@@ -1,0 +1,62 @@
+<div class="container-fluid m-3">
+    <div class="row mb-2">
+        <h1>Neural Networks Toxic Comments Classifier</h1>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <label for="comment">Type here your comment:</label>
+            <textarea (keyup)="calculate(comment.value)" #comment value="" class="form-control" placeholder="comment..." id="comment" rows="3"></textarea>
+        </div>
+        <div *ngIf="loading">
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 p-0 m-0"></div>
+        <div class="text-center col-2 p-0 m-0"><h2>LSTM</h2></div>
+        <div class="col-2 p-0 m-0"></div>
+        <div class="col-2 p-0 m-0"></div>
+        <div class="text-center col-2 p-0 m-0"><h2>BERT</h2></div>
+        <div class="col-2 p-0 m-0"></div>
+    </div>
+    <div class="row">
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataToxicLSTM" [labels]="doughnutChartLabelsToxic" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataSevereToxicLSTM" [labels]="doughnutChartLabelsSevereToxic" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataObsceneLSTM" [labels]="doughnutChartLabelsObscene" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataToxicBERT" [labels]="doughnutChartLabelsToxic" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataSevereToxicBERT" [labels]="doughnutChartLabelsSevereToxic" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataObsceneBERT" [labels]="doughnutChartLabelsObscene" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataThreatLSTM" [labels]="doughnutChartLabelsThreat" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataInsultLSTM" [labels]="doughnutChartLabelsInsult" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataIdentityHateLSTM" [labels]="doughnutChartLabelsIdentityHate" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataThreatBERT" [labels]="doughnutChartLabelsThreat" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataInsultBERT" [labels]="doughnutChartLabelsInsult" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+        <div class="col-2 p-0 m-0">
+            <canvas baseChart [data]="doughnutChartDataIdentityHateBERT" [labels]="doughnutChartLabelsIdentityHate" [chartType]="doughnutChartType" [options]="doughnutChartOptions"></canvas>
+        </div>
+    </div>
+</div>
