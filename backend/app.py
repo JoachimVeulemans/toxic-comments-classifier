@@ -56,6 +56,9 @@ def tokenize_and_pad_single_text(text, max_seq):
 def targets_to_tensor(df, target_columns):
     return torch.tensor(df[target_columns].values, dtype=torch.float32)
 
+@app.route('', methods=['GET'])
+def hello_world():
+    return "Server up & running!"
 
 @app.route('/predict/bert', methods=['POST'])
 async def predict_bert(request):
