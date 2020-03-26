@@ -16,6 +16,7 @@ steps:
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
+    pip install transformers===2.2.2 tensorflow===1.14.1
   workingDirectory: './backend'
   displayName: 'Install dependencies'
 
