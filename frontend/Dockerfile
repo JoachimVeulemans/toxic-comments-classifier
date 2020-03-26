@@ -25,5 +25,5 @@ FROM nginx:latest
 # 9 - Copy the build output to the nginx-container
 COPY --from=build-stage /app/dist/out/ /usr/share/nginx/html
 
-# 10 - Copy the default nginx.conf provided by tiangolo/node-frontend
+# 10 - Copy the default nginx.conf
 COPY nginx.conf /etc/nginx/conf.d/default.conf
