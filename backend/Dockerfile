@@ -13,20 +13,27 @@ COPY requirements.txt requirements.txt
 # 5 - Install some needed packages for the project
 RUN pip install -r requirements.txt
 
-# 6 - Copy whole project to Docker container
+# 5 - Install tensorflow (no AVX - CPU)
+COPY tensorflow-1.14.1-cp36-cp36m-linux_x86_64.whl tensorflow-1.14.1-cp36-cp36m-linux_x86_64.whl
+RUN pip3 install tensorflow-1.14.1-cp36-cp36m-linux_x86_64.whl
+
+# 6 - Install transformers - Do not update this dependency, it will break the model
+RUN pip3 install transformers===2.2.2
+
+# 7 - Copy whole project to Docker container
 COPY . /app
 
-# 7 - Set environment to use port 443
+# 8 - Set environment to use port 443
 ENV PORT 443
 
-# 8 - Expose port 443 to bind to later on
+# 9 - Expose port 443 to bind to later on
 EXPOSE 443
 
-# 9 - Define the working directory
+# 10 - Define the working directory
 WORKDIR /app
 
-# 10 - Set entrypoint to Python
+# 11 - Set entrypoint to Python
 ENTRYPOINT [ "python3.6" ]
 
-# 11 - Launch app.py in command line
-CMD [ "app.py" ]
+# 12 - Launch app.py in command line
+CMD [ "application.py" ]

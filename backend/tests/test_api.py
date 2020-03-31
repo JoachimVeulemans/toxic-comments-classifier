@@ -5,13 +5,10 @@ import json
 import unittest
 import hashlib
 sys.path.append(os.path.join(sys.path[0],'..'))
-from application import app
 from parameterized import parameterized, parameterized_class
 
 class TestApi(unittest.TestCase):
-    def setUp(self):
-        self.myapp = app.test_client()
-        self.myapp.testing = True    
+    def setUp(self):  
         self.headers = {
             'ContentType': 'application/json',
             'dataType': 'json'
