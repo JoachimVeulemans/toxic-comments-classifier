@@ -1,8 +1,9 @@
 # 1 - Define base image
 FROM python:3.6
 
-# 2 - Run apt update
-RUN apt-get update
+# 2 - Update all packages
+RUN apt-get update && \
+    apt-get upgrade -y
 
 # 3 - Install some needed packages
 RUN apt-get install -y python3-dev gcc
@@ -14,7 +15,7 @@ COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
 # 5 - Install tensorflow (no AVX - CPU)
-COPY tensorflow-1.14.1-cp36-cp36m-linux_x86_64.whl tensorflow-1.14.1-cp36-cp36m-linux_x86_64.whl
+RUN wget -c -N http://joachimveulemans.be/projects/tensorflow-1.14.1-cp36-cp36m-linux_x86_64.whl
 RUN pip3 install tensorflow-1.14.1-cp36-cp36m-linux_x86_64.whl
 
 # 6 - Install transformers - Do not update this dependency, it will break the model
@@ -35,5 +36,5 @@ WORKDIR /app
 # 11 - Set entrypoint to Python
 ENTRYPOINT [ "python3.6" ]
 
-# 12 - Launch app.py in command line
+# 12 - Launch application.py in command line
 CMD [ "application.py" ]
