@@ -5,6 +5,6 @@ numpy===1.18.1
 keras===2.3.1
 fastai===1.0.60
 scikit-learn===0.22.1
-parameterized==0.7.1
+parameterized==0.7.3
 pytest==5.4.1
 pytest-cov==2.8.1
