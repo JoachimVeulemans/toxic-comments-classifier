@@ -1,5 +1,5 @@
 starlette===0.13.6
-uvicorn===0.11.7
+uvicorn===0.11.8
 torch===1.6.0
 numpy===1.19.1
 keras===2.4.3
